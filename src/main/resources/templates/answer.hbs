@@ -1,0 +1,34 @@
+{{#partial "content"}}
+
+    <h1 style="color:white">Post list!</h1>
+
+    {{#if monster}}
+
+        {{#each monster}}
+            <div >
+                <h1 style="color:black">Current post:</h1>
+                <p style="color:black">Name: {{ name }}</p>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No animal!</p>
+
+    {{/if}}
+
+    {{#if danger}}
+
+        {{#each danger}}
+            <div >
+                <h1 style="color:black">Current post:</h1>
+                <p style="color:black">Name: {{ name }}</p>
+                <p style="color:black">Health: {{ health }}</p>
+                <p style="color:black">Age: {{ age }}</p>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No  Endangered animal!</p>
+
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
