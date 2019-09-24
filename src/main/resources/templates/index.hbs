@@ -1,10 +1,13 @@
 {{#partial "content"}}
 <h1>Welcomeeeeeeeeeeeeeeeeeeeeeee!!!!!!!!!!!!!!!</h1>
-    <form style="background-color:white;text-align:center" action="/animals/new" method="post">
-        <label for="name">Name</label><br>
+    <form style="background-color:white;text-align:center" action="/" method="post">
+        <label for="name">name</label><br>
         <input id="name" name="name" type="text"><br>
         <button type="submit" class="btn btn-default">Add</button><br>
+
     </form>
+    <p>if the animal is endangered click here</p>
+<button type="submit" class="btn btn-danger" ><a href="/here">click me</a></button>
 {{/partial}}
 
 {{> layout.hbs}}
