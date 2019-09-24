@@ -1,26 +1,33 @@
 {{#partial "content"}}
 
     <h1 style="color:white">Post list!</h1>
+    <div style="text-align:center">
+        <h1 style="text-align:center;font-family:monospace;color:white">Normal animals information</h1>
+    <div style="background:white;opacity:0.7">
+
 
     {{#if monster}}
 
         {{#each monster}}
-            <div >
+
                 <h1 style="color:black">Current post:</h1>
                 <p style="color:black">Name: {{ name }}</p>
-            </div>
+
         {{/each}}
     {{else}}
         <p>No animal!</p>
 
     {{/if}}
-
+    </div>
+        <h1 style="text-align:center;font-family:monospace;color:white">Endangered Animals information</h1>
+    <div style="background:white;opacity:0.7">
     {{#if danger}}
 
         {{#each danger}}
             <div >
                 <h1 style="color:black">Current post:</h1>
-                <p style="color:black">Name: {{ name }}</p>
+                <p style="color:black">Animal's Name: {{ name }}</p>
+               <p style="color:black">Rangers Name: {{ ranger }}</p>
                 <p style="color:black">Health: {{ health }}</p>
                 <p style="color:black">Age: {{ age }}</p>
                 <p style="color:black">Location: {{ location }}</p>
@@ -30,6 +37,15 @@
         <p>No  Endangered animal!</p>
 
     {{/if}}
+</div>
+    </div>
+    <style>
+               body{
+    background-image:url("http://www.wallpapers13.com/wp-content/uploads/2016/02/Brown-horse-beautiful-animals-Green-Meadow-Ultra-Hd-Desktop_-3840x2160-915x515.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    }
+    </style>
 {{/partial}}
 
 {{> layout.hbs}}
