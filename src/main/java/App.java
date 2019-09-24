@@ -20,10 +20,11 @@ public class App {
             String name =request.queryParams("name");
             String health=request.queryParams("health");
             String age=request.queryParams("age");
+            String location=request.queryParams("location");
            Animal animal = new Animal(name);
             model.put("animal", animal);
             animal.save();
-           EndangeredAnimal endager=new EndangeredAnimal(name,health,age);
+           EndangeredAnimal endager=new EndangeredAnimal(name,health,age,location);
             model.put("endager",endager);
             endager.save();
             return new ModelAndView(model, "success.hbs");
