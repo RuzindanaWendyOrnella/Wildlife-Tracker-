@@ -1,7 +1,9 @@
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -13,15 +15,35 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/animals/new", (request, response) -> { //URL to make new post on POST route
+        post("/", (request, response) -> { //URL to make new post on POST route
             Map<String, Object> model = new HashMap<>();
             String name =request.queryParams("name");
-            Animal animal = new Animal(name);
+            String health=request.queryParams("health");
+            String age=request.queryParams("age");
+           Animal animal = new Animal(name);
+            model.put("animal", animal);
             animal.save();
-            model.put("animals", animal);
+           EndangeredAnimal endager=new EndangeredAnimal(name,health,age);
+            model.put("endager",endager);
+            endager.save();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+        get("/list", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Animal> monster = Animal.all();
+            List<EndangeredAnimal> danger =EndangeredAnimal.all();
+            model.put("monster", monster);
+            model.put("danger", danger);
+            return new ModelAndView(model, "answer.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/here", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<EndangeredAnimal> danger =EndangeredAnimal.all();
+            model.put("danger", danger);
+            return new ModelAndView(model, "form.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 
 }
