@@ -5,10 +5,10 @@ import java.util.List;
 public class EndangeredAnimal {
     private String name;
     private String health;
-    private int age;
+    private String age;
     private int id;
 
-    public EndangeredAnimal(String name, String health, int age) {
+    public EndangeredAnimal(String name, String health,String age) {
         this.name = name;
         this.health = health;
         this.age = age;
@@ -17,12 +17,19 @@ public class EndangeredAnimal {
     public String getName() {
         return name;
     }
-
+    public String getHealth() {
+        return health;
+    }
+    public String getAge() {
+        return age;
+    }
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO endangeredanimal (name) VALUES (:name)";
+            String sql = "INSERT INTO endangeredanimal (name,health,age) VALUES (:name,:health,:age)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
+                    .addParameter("health", this.health)
+                    .addParameter("age", this.age)
                     .executeUpdate()
                     .getKey();
         }
