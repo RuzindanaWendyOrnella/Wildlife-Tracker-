@@ -18,13 +18,14 @@ public class App {
         post("/", (request, response) -> { //URL to make new post on POST route
             Map<String, Object> model = new HashMap<>();
             String name =request.queryParams("name");
+            String ranger =request.queryParams("ranger");
             String health=request.queryParams("health");
             String age=request.queryParams("age");
             String location=request.queryParams("location");
            Animal animal = new Animal(name);
             model.put("animal", animal);
             animal.save();
-           EndangeredAnimal endager=new EndangeredAnimal(name,health,age,location);
+           EndangeredAnimal endager=new EndangeredAnimal(name,ranger,health,age,location);
             model.put("endager",endager);
             endager.save();
             return new ModelAndView(model, "success.hbs");
