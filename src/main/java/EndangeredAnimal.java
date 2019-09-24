@@ -4,13 +4,15 @@ import java.util.List;
 
 public class EndangeredAnimal {
     private String name;
+    private String ranger;
     private String health;
     private String age;
     private String location;
     private int id;
 
-    public EndangeredAnimal(String name, String health,String age,String location) {
+    public EndangeredAnimal(String name,String ranger, String health,String age,String location) {
         this.name = name;
+        this.ranger=ranger;
         this.health = health;
         this.age = age;
         this.location=location;
@@ -18,6 +20,9 @@ public class EndangeredAnimal {
 
     public String getName() {
         return name;
+    }
+    public String getRanger() {
+        return ranger;
     }
     public String getHealth() {
         return health;
@@ -30,9 +35,10 @@ public class EndangeredAnimal {
     }
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO endangeredanimal (name,health,age,location) VALUES (:name,:health,:age,:location)";
+            String sql = "INSERT INTO endangeredanimal (name,ranger,health,age,location) VALUES (:name,:ranger,:health,:age,:location)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
+                    .addParameter("ranger", this.ranger)
                     .addParameter("health", this.health)
                     .addParameter("age", this.age)
                     .addParameter("location", this.location)
