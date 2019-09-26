@@ -23,6 +23,7 @@ programmmer at wecode.
 * java
 * html and css
 * postgress
+* heroku
 ## Support and contact details
 if you have any issue please contact me at ruzindanawendy@gmail.com.
 ### License
