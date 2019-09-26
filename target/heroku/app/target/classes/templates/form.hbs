@@ -1,0 +1,27 @@
+{{#partial "content"}}
+
+<br><br><br><br><br><br>
+    <form style="background-color:black;color:black;opacity:0.7;text-align:center" action="/" method="post">
+        <h1 style="padding-top:1%;color:black">EndangeredAnimals</h1>
+        <label for="name" style="color:white">Animal's  Name</label><br>
+        <input id="name" style="color:black" name="name" type="text"><br>
+        <label for="ranger" style="color:white">Rangers Name</label><br>
+        <input id="ranger" style="color:black" name="ranger" type="text"><br>
+        <label for="health" style="color:white">Health</label><br>
+        <input id="health" name="health" style="color:black" type="text"><br>
+        <label for="age" style="color:white">Age</label><br>
+        <input id="age" Name="age" type="text" style="color:black"><br>
+        <label for="location" style="color:white">Location</label><br>
+        <input id="location" name="location" style="color:black" type="text"><br><br>
+        <button type="submit" class="btn btn-default" >Add</button><br>
+    </form>
+    <style>
+          body{
+    background-image:url("https://blazepress.com/.image/t_share/MTI4OTg2MTQ5NjY5NjA3OTAy/animals-with-different-coloured-eyes-14.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    }
+    </style>
+{{/partial}}
+
+{{> layout.hbs}}
